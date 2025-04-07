@@ -10,13 +10,19 @@ class Hall extends Model
     use HasFactory;
 
     protected $fillable = [
-      'name',
-      'capacity',
-      'type'
-  ];
+        'name',
+        'capacity',
+        'type'
+    ];
 
-  public function screenings()
-  {
-      return $this->hasMany(Screening::class);
-  }
+    // Relation avec les sièges
+    public function seats()
+    {
+        return $this->hasMany(Seat::class);
+    }
+
+    public function screenings()
+    {
+        return $this->hasMany(Screening::class);
+    }
 }

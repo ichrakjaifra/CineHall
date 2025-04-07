@@ -12,13 +12,12 @@ class HallController extends Controller
     private $hallRepository;
 
     public function __construct(HallRepositoryInterface $hallRepository)
-    {
-        $this->hallRepository = $hallRepository;
-        
-        // Seules les méthodes index et show sont publiques
-        $this->middleware('auth:api')->except(['index', 'show']);
-        $this->middleware('admin')->except(['index', 'show']);
-    }
+{
+    $this->hallRepository = $hallRepository;
+    $this->middleware('auth:api')->except(['index', 'show']);
+    //$this->middleware('admin')->except(['index', 'show']);
+    // Retirez la ligne avec le middleware admin
+}
 
     /**
      * Liste toutes les salles
